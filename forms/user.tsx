@@ -5,6 +5,7 @@ import { Box, Flex } from '@/components/layout/layout'
 import Field from '@/components/field/field'
 import Button from '@/components/button/button'
 import { Text } from '@/components/typography/typography'
+import axios from 'axios'
 
 interface UserFormProps {
   name: string
@@ -27,16 +28,23 @@ const UserForm: FC<UserFormProps> = ({ name, image, onSuccess, onFail }) => {
     validationSchema,
     onSubmit: async (values: { name: string, image: string }, { setSubmitting }) => {
       try {
-        const res = await fetch('/api/user', {
-          body: JSON.stringify(values),
-          method: 'PUT',
-          credentials: 'include',
+        // const res = await fetch('/api/user', {
+        //   body: JSON.stringify(values),
+        //   method: 'PUT',
+        //   credentials: 'include',
+        //   headers: {
+        //     'Content-Type': 'application/json'
+        //   }
+        // })
+        const res = await axios.put('/api/user', JSON.stringify(values), {
+          withCredentials: true,
           headers: {
             'Content-Type': 'application/json'
           }
-        })
+        });
 
-        const data = await res.json()
+        // const data = await res.json()
+        const data = await res.data;
 
         if (data.error) {
           onFail()

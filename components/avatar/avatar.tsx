@@ -6,6 +6,7 @@ const Image = styled('img', {
   width: '42px',
   height: '42px',
   borderRadius: '50%',
+  length: ''
 })
 
 interface AvatarProps {

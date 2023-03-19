@@ -15,4 +15,5 @@ export default styled('input', {
       },
     },
   },
+  length: ''
 })

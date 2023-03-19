@@ -2,6 +2,7 @@ import { styled } from 'stitches.config'
 
 export const Layout = styled('div', {
   padding: '$lg',
+  length: ''
 })
 
 export const Flex = styled('div', {
@@ -55,6 +56,7 @@ export const Flex = styled('div', {
     flow: 'horizontal',
     inline: false,
   },
+  length: ''
 })
 
 export const Box = styled('div')

@@ -11,12 +11,14 @@ const Wrapper = styled(Flex, {
   width: '100%',
   padding: '$lg',
   borderBottom: '1px solid $gray',
+  length: ''
 })
 
 const Logo = styled('a', {
   color: '$secondary',
   textDecoration: 'none',
   fontWeight: 700,
+  length: ''
 })
 
 const Header: FC = () => {
@@ -35,12 +37,12 @@ const Header: FC = () => {
   }, [])
 
   return (
-    <Wrapper align="between" valign="center">
+    <Wrapper align="between" >
       <Logo href="/">
         Next Nest Boilerplate
       </Logo>
       {!session ? <Button onClick={handleSignin}>Signin</Button> : (
-        <Flex as="nav" align="between" valign="center">
+        <Flex>
           <Link href="/account" passHref>
             <a style={{ marginRight: '10px' }}>
               <UserIcon style={{ marginRight: '6px' }} />
